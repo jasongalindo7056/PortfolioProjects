@@ -37,8 +37,6 @@ WHERE continent IS NOT NULL
 GROUP BY continent
 ORDER BY TotalDeathCount DESC NULLS LAST;
 
-
-
 -- GLOBAL NUMBERS
 SELECT date_, SUM(new_cases) AS Total_Cases, SUM(CAST(new_deaths AS INT)) AS TotalDeaths , SUM(CAST(new_deaths AS INT))/SUM(new_cases)*100 AS DeathPercentage
 FROM CovidDeaths
@@ -92,6 +90,7 @@ WHERE dea.continent IS NOT NULL
 
 SELECT *, (RollingPeopleVaccinated/Population)*100
 FROM PopvsVac
+
 
 --TEMP TABLE
 DROP TABLE IF EXISTS #PercentPopulationVaccinated
