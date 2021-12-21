@@ -1,15 +1,18 @@
+-- Data Exploration on Covid 19 
+
+-- Select data we are going to be working with
 SELECT Location, date_, total_cases, new_cases, total_deaths, population
 FROM CovidDeaths
 ORDER BY 1,2
 
--- Looking at Total Cases vs. Total Deaths
+-- Total Cases vs. Total Deaths
 -- Shows likelihood of dying if you contract covid in my country
 SELECT Location, date_, total_cases, total_deaths,(total_deaths/total_cases)*100 AS DeathPercentage 
 FROM CovidDeaths
 WHERE location = 'United States'
 ORDER BY 1,2
 
--- Looking at Total Cases vs. Population
+-- Total Cases vs. Population
 -- Shows what percentage of population got covid
 SELECT Location, date_, population, total_cases, (total_cases/population)*100 AS DeathPercentage 
 FROM CovidDeaths
@@ -75,7 +78,7 @@ ORDER BY 2, 3
 
 – USE CTE 
 
-With PopvsVac(Continent, Location, Date_, Population, New_Vaccinations, RollingPeopleVaccinated)
+WITH PopvsVac(Continent, Location, Date_, Population, New_Vaccinations, RollingPeopleVaccinated)
 AS
 (
 SELECT dea.continent, dea.location, dea.date_, dea.population, vac.new_vaccinations
@@ -92,9 +95,9 @@ SELECT *, (RollingPeopleVaccinated/Population)*100
 FROM PopvsVac
 
 
---TEMP TABLE
-DROP TABLE IF EXISTS #PercentPopulationVaccinated
-CREATE TABLE #PercentPopulationVaccinated
+-- TEMP TABLE
+DROP TABLE IF EXISTS PercentPopulationVaccinated
+CREATE TABLE PercentPopulationVaccinated
 (
 Continent nvarchar(255),
 Location nvarchar(255),
@@ -103,7 +106,7 @@ Population NUMERIC,
 New_Vaccinations NUMERIC,
 RollingPeopleVaccinated NUMERIC
 )
-INSERT INTO #PercentPopulationVaccinated
+INSERT INTO PercentPopulationVaccinated
 SELECT dea.continent, dea.location, dea.date_, dea.population, vac.new_vaccinations
 , SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location,
 dea.date_ ) AS RollingPeopleVaccinated  
@@ -114,7 +117,7 @@ AND dea.date_ = vac.date_
 WHERE dea.continent IS NOT NULL
 
 SELECT *, (RollingPeopleVaccinated/Population)*100
-FROM #PercentPopulationVaccinated
+FROM PercentPopulationVaccinated
 
 
 --Creating View to store data for later visualizations
