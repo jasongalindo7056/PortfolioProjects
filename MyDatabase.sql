@@ -14,7 +14,7 @@ ORDER BY 1,2
 
 -- Total Cases vs. Population
 -- Shows what percentage of population got covid
-SELECT Location, date_, population, total_cases, (total_cases/population)*100 AS DeathPercentage 
+SELECT Location, date_, population, total_cases, (total_cases/population)*100 AS PercentPopulationInfected 
 FROM CovidDeaths
 WHERE location = 'United States'
 ORDER BY 1,2
