@@ -76,7 +76,7 @@ ORDER BY 2, 3
 -- Total Population vs. Vaccinations
 -- Percentage of population that has a minimum of one covid vaccine(Same as above, but adds up each new vaccination in the last column)
 
-SELECT dea.continent, dea.location, dea.date_, dea.population, vac.new_vaccinations, SUM(CONVERT(INT,vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location,dea.date_ ) AS RollingPeopleVaccinated
+SELECT dea.continent, dea.location, dea.date_, dea.population, vac.new_vaccinations, SUM(CONVERT(INT,vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY dea.location,dea.date_ ) AS RollingPeopleVaccinated
 FROM CovidDeaths dea JOIN CovidVaccinations vac 
 ON dea.location = vac.location
 and dea.date_ = vac.date_
