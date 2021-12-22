@@ -82,14 +82,13 @@ and dea.date_ = vac.date_
 WHERE dea.continent IS NOT NULL
 ORDER BY 2, 3
 
-
 -- Use CTE to perform Calculation
 
 WITH PopvsVac(Continent, Location, Date_, Population, New_Vaccinations, RollingPeopleVaccinated)
 AS
 (
 SELECT dea.continent, dea.location, dea.date_, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location,
+, SUM(CONVERT(INT,vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY dea.location,
 dea.date_ ) AS RollingPeopleVaccinated  
 FROM CovidDeaths dea 
 JOIN CovidVaccinations vac 
@@ -101,11 +100,10 @@ WHERE dea.continent IS NOT NULL
 SELECT *, (RollingPeopleVaccinated/Population)*100
 FROM PopvsVac
 
-
 -- Use Temp Table to perform Calculation 
 
-DROP TABLE IF EXISTS PercentPopulationVaccinated
-CREATE TABLE PercentPopulationVaccinated
+DROP TABLE IF EXISTS #PercentPopulationVaccinated
+CREATE TABLE #PercentPopulationVaccinated
 (
 Continent nvarchar(255),
 Location nvarchar(255),
@@ -114,9 +112,9 @@ Population NUMERIC,
 New_Vaccinations NUMERIC,
 RollingPeopleVaccinated NUMERIC
 )
-INSERT INTO PercentPopulationVaccinated
+INSERT INTO #PercentPopulationVaccinated
 SELECT dea.continent, dea.location, dea.date_, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location,
+, SUM(CONVERT(INT,vac.new_vaccinations)) OVER (PARTITION BY dea.location ORDER BY dea.location,
 dea.date_ ) AS RollingPeopleVaccinated  
 FROM CovidDeaths dea 
 JOIN CovidVaccinations vac 
@@ -125,14 +123,13 @@ AND dea.date_ = vac.date_
 WHERE dea.continent IS NOT NULL
 
 SELECT *, (RollingPeopleVaccinated/Population)*100
-FROM PercentPopulationVaccinated
+FROM #PercentPopulationVaccinated
 
-
---Creating View to store data for later visualizations
+-- Creating View to store data for later visualizations
 
 CREATE View PercentPopulationVaccinated AS
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (Partition BY dea.Location ORDER BY dea.location, dea.Date) AS RollingPeopleVaccinated
+, SUM(CONVERT(INT,vac.new_vaccinations)) OVER (Partition BY dea.Location ORDER BY dea.location, dea.Date) AS RollingPeopleVaccinated
 FROM CovidDeaths dea
 JOIN CovidVaccinations vac
 	ON dea.location = vac.location
