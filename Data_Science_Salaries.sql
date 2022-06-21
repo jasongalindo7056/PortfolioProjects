@@ -12,11 +12,6 @@ FROM ds_salaries
 GROUP BY employee_residence
 ;
 
-#What is the highest salary? highest salary is $600000
-SELECT MAX(salary_in_usd) as Highest_Salary_Data_Science
-FROM ds_salaries
-;
-
 #This query allows me to obtain the average salary per state in the work year 2020 
 #i.e, California resident average salary for data science field in 2020 is $117,104
 SELECT employee_residence, AVG(salary_in_usd)
@@ -25,9 +20,20 @@ WHERE work_year = 2020
 GROUP BY employee_residence
 ;
 
+#What is the highest salary? highest salary is $600000
+SELECT MAX(salary_in_usd) as Highest_Salary_Data_Science
+FROM ds_salaries
+;
+
 #What is the highest salary per experience level
 SELECT experience_level, MAX(salary_in_usd)
 FROM ds_Salaries
+GROUP BY experience_level
+;
+
+#Average Salary Per Experience level
+SELECT experience_level, AVG(salary_in_usd)
+FROM ds_salaries
 GROUP BY experience_level
 ;
 
@@ -36,4 +42,12 @@ SELECT job_title, COUNT(job_title) AS total_job
 FROM ds_salaries
 GROUP BY job_title
 ORDER BY total_job DESC
+;
+
+#This query obtains the average salary per job title
+#i.e, The average salary of a data scientist in 2020 is 85,970
+SELECT job_title, AVG(salary_in_usd)
+FROM ds_salaries
+WHERE work_year = 2020
+GROUP BY job_title
 ;
