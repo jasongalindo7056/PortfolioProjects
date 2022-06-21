@@ -1,19 +1,19 @@
-#This query allows me to obtain the average salary per state 
-#i.e, California resident average salary for data science field is $97085
-SELECT employee_residence, AVG(salary_in_usd) as Average_Salary_Per_State
+#This query allows me to obtain the average salary per country 
+#i.e, Canada resident average salary for data science field is $97085
+SELECT employee_residence, AVG(salary_in_usd) as Average_Salary_Per_Country
 FROM ds_salaries
 GROUP BY employee_residence
 ;
 
 #This query gets the max salary and groups this max salary by employee_residence
-#i.e, California Max Salary is 196,979 for data science field
+#i.e, Canada Max Salary is 196,979 for data science field
 SELECT employee_residence, MAX(salary_in_usd) as Max_Salary_Per_State
 FROM ds_salaries
 GROUP BY employee_residence
 ;
 
 #This query allows me to obtain the average salary per state in the work year 2020 
-#i.e, California resident average salary for data science field in 2020 is $117,104
+#i.e, Canada resident average salary for data science field in 2020 is $117,104
 SELECT employee_residence, AVG(salary_in_usd)
 FROM ds_salaries
 WHERE work_year = 2020
