@@ -1,10 +1,9 @@
 #This query allows me to obtain the average salary per state 
-#i.e, California resident average salary for data science field is $97,085
+#i.e, California resident average salary for data science field is $97085
 SELECT employee_residence, AVG(salary_in_usd) as Average_Salary_Per_State
 FROM ds_salaries
 GROUP BY employee_residence
 ;
-
 
 #This query gets the max salary and groups this max salary by employee_residence
 #i.e, California Max Salary is 196,979 for data science field
@@ -13,7 +12,7 @@ FROM ds_salaries
 GROUP BY employee_residence
 ;
 
-#What is the highest salary? highest salary is $600,000
+#What is the highest salary? highest salary is $600000
 SELECT MAX(salary_in_usd) as Highest_Salary_Data_Science
 FROM ds_salaries
 ;
