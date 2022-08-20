@@ -1,3 +1,6 @@
+-- Data exploration on Methane Emissions
+
+
 #Highest emissions
 SELECT *
 FROM emissions
