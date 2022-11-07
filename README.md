@@ -6,7 +6,7 @@ These are the various projects I've worked on which include data analysis and vi
 
 ##Storms Data Analysis & Dashboard  - Transformed data using Excel and Pandas, and the results were visualized on the Tableau dashboard.
 
-###Airbnb Profitability Analysis - Iden%fied the most profitable lis%ngs on Airbnb by analyzing prices and determining revenue
+###Covid - 19 Data Analysis & Dashboard -  Identified covid-19 transmission rates and the average vaccination rates per region and country, using SQL and Tableau to query and visualize data.
 
                               Skills Used: Excel, SQL, Python, Tableau
 #Excel - Used Power Query to extract, transform, and load data to the workbook, and also added Pivot Tables to group the data by columns. In addition, used Conditional Formatting to identify patterns and trends in the table.
