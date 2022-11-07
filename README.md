@@ -1,4 +1,4 @@
-                                                        Overview 
+Overview 
     
     These are the various projects I've worked on which include data analysis and visualization on methane emissions, 
     storms, Airbnb, and monthly insurance premiums. Completed data analysis and visualization by extracting, transfor
@@ -7,11 +7,11 @@
 
    
  
-                                                   Table of Contents
+Table of Contents
 
-#Methane Emissions Data Analysis & Dashboard - Quantified methane emissions by region, country, and segment, and then results were visualized on the Tableau dashboard.
+    #Methane Emissions Data Analysis & Dashboard - Quantified methane emissions by region, country, and segment, and then results were visualized on the       Tableau dashboard.
 
-##Storms Data Analysis & Dashboard  - Transformed data using Excel and Pandas, and the results were visualized on the Tableau dashboard.
+    ##Storms Data Analysis & Dashboard  - Transformed data using Excel and Pandas, and the results were visualized on the Tableau dashboard.
 
 
 Skills Used: Excel, SQL, Python, Tableau
