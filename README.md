@@ -5,7 +5,9 @@
     ming, loading, and visualizing data using software including Python, Excel, SQL, and Tableau, which allowed me to 
     identify key insights and trends, and calculate the mean, median, and quartile ranges.
 
-    Table of Contents
+   
+ 
+                                                   Table of Contents
 
 #Methane Emissions Data Analysis & Dashboard - Quantified methane emissions by region, country, and segment, and then results were visualized on the Tableau dashboard.
 
