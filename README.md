@@ -11,7 +11,7 @@ These are the various projects I've worked on which include data analysis and vi
 ##Storms Data Analysis & Dashboard  - Transformed data using Excel and Pandas, and the results were visualized on the Tableau dashboard.
 
 
-                                  Skills Used: Excel, SQL, Python, Tableau
+                                   Skills Used: Excel, SQL, Python, Tableau
 
 #Excel - Used Power Query to extract, transform, and load data to the workbook, and also added Pivot Tables to group the data by columns. In addition, used Conditional Formatting to identify patterns and trends in the table.
 
