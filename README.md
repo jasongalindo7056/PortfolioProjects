@@ -8,7 +8,7 @@ These are the various projects I've worked on which include data analysis and vi
 
 ###Storms Data Analysis & Dashboard  - Transformed data using Excel and Pandas, and the results were visualized on the Tableau dashboard.
 
-#### Predictive Analysis - Determined if company should focus on their application or their website, using a linear regression model. In addition, predicted the yearly amount spent by using a linear regression model. The evaluation of the model was evaluated with the MAE, MSE, RMSE, and the Explained Variance Score.
+####Predictive Analysis - Determined if company should focus on their application or their website, using a linear regression model. In addition, predicted the yearly amount spent by using a linear regression model. The evaluation of the model was evaluated with the MAE, MSE, RMSE, and the Explained Variance Score.
 
                               Skills Used: Excel, SQL, Python, Tableau
 #Excel - Used Power Query to extract, transform, and load data to the workbook, and also added Pivot Tables to group the data by columns. In addition, used Conditional Formatting to identify patterns and trends in the table.
