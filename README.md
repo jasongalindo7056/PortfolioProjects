@@ -3,6 +3,7 @@ These are the various projects I've worked on which include data analysis and vi
  
                                            Table of Contents
 #Data Analysis
+
 ##Covid - 19 Data Analysis & Dashboard -  Identified covid-19 transmission rates and the average vaccination rates per region and country, using SQL and Tableau.
 
 ###Methane Emissions Data Analysis & Dashboard - Quantified methane emissions by region, country, and segment, and then results were visualized on the       Tableau dashboard.
@@ -10,6 +11,7 @@ These are the various projects I've worked on which include data analysis and vi
 ####Storms Data Analysis & Dashboard  - Transformed data using Excel and Pandas, and the results were visualized on the Tableau dashboard.
 
 #Machine Learning
+
 ##Predictive Analysis - Determined if company should focus on their application or their website, using a linear regression model. In addition, predicted the yearly amount spent by using a linear regression model. The evaluation of the model was evaluated with the MAE, MSE, RMSE, and the Explained Variance Score.
 
                               Skills Used: Excel, SQL, Python, Tableau
